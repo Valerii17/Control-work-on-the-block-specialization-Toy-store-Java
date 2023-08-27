@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.toyStoreJava.Toy;
+import org.example.toyStoreJava.ToyStore;
+
 public class Main {
     public static void main(String[] args) {
         /**
@@ -19,5 +22,30 @@ public class Main {
          * записываем в текстовый файл.
          * Не забываем уменьшить количество игрушек
          */
+
+
+        ToyStore toyStore = new ToyStore();
+
+        // Добавление новых игрушек
+        Toy toy1 = new Toy(1, "Кукла", 5, 20);
+        Toy toy2 = new Toy(2, "Мяч", 10, 50);
+        Toy toy3 = new Toy(3, "Машинка", 8, 30);
+
+        toyStore.addToy(toy1);
+        toyStore.addToy(toy2);
+        toyStore.addToy(toy3);
+
+        // Изменение веса (частоты выпадения игрушки)
+        toyStore.updateToyWeight(1, 15);
+        toyStore.updateToyWeight(2, 25);
+        toyStore.updateToyWeight(3, 60);
+
+        // Организация розыгрыша игрушек
+        toyStore.organizePrizeDraw();
+
+        // Получение призовой игрушки
+        Toy prizeToy = toyStore.getPrizeToy();
+
+        System.out.println("Выигрышная игрушка: " + prizeToy.getName());
     }
 }
